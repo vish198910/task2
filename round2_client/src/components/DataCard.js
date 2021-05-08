@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Card, Col, Row, Button } from "react-bootstrap";
-import Popup from 'reactjs-popup';
+import React from "react";
+import { Card} from "react-bootstrap";
+import PopUp from "../components/PopUp";
 
 const DataCard = ({ heading, short_desc, long_desc, img_url }) => {
 
-
+    
   return (
     <>
       <Card
@@ -30,7 +30,7 @@ const DataCard = ({ heading, short_desc, long_desc, img_url }) => {
           />
           <Card.Title>{heading}</Card.Title>
           <Card.Text>{short_desc}</Card.Text>
-          <Card.Link>Try Out{">"}</Card.Link>
+          <PopUp heading={heading} long_desc={long_desc}></PopUp>
         </Card.Body>
       </Card>
     </>
