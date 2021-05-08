@@ -1,0 +1,30 @@
+{
+  "name": "round2_server",
+  "version": "1.0.0",
+  "description": "https://github.com/vish198910/task2Data will be fetched from a SQLlite DB and displayed dynamically on web browser using ReactJS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vish198910/task2.git"
+  },
+  "keywords": [
+    "sqlite3"
+  ],
+  "author": "Vishnu Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vish198910/task2/issues"
+  },
+  "homepage": "https://github.com/vish198910/task2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "sqlite3": "^5.0.2"
+  }
+}
