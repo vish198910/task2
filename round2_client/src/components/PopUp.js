@@ -101,13 +101,18 @@ export default function PopUpDialog({ heading, long_desc }) {
     const video = document.querySelector("video");
 
     // A video's MediaStream object is available through its srcObject attribute
+    if(video !== null){
     const mediaStream = video.srcObject;
+    if(mediaStream !==null){
+        const tracks = mediaStream.getTracks();
 
+        // Tracks are returned as an array, so if you know you only have one, you can stop it with:
+        tracks[0].stop();
+    }
     // Through the MediaStream, you can get the MediaStreamTracks with getTracks():
-    const tracks = mediaStream.getTracks();
-
-    // Tracks are returned as an array, so if you know you only have one, you can stop it with:
-    tracks[0].stop();
+   
+    }
+    
   }
   const [open, setOpen] = React.useState(false);
 
@@ -125,41 +130,33 @@ export default function PopUpDialog({ heading, long_desc }) {
         Try Out
       </Button>
       <Dialog open={open}>
-        <div style={{padding:"20px"}}>
- 
-            <Grid
-              container
-              direction="row"
-              spacing={spacing}
-            >
-              
-
-              <Grid item lg={8}> 
-                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                  <strong>{heading}</strong>
-                </DialogTitle>
-                <DialogContent dividers>
-                  <Typography gutterBottom>{long_desc}</Typography>
-                </DialogContent>
-                <DialogActions>
-                  <Button autoFocus onClick={handleClose} color="primary">
-                    Close
-                  </Button>
-                </DialogActions>
-              </Grid>
-
-              <Grid item lg={4}>
-                  <p>Using in-built Camera</p>
-                  <video
-                    id="videoElement"
-                    width="100%"
-                    height="100%"
-                    autoplay
-                  ></video>
-                  <Button onClick={streamStartVideo}>Start</Button>
-              </Grid>
+        <div style={{ padding: "20px" }}>
+          <Grid container direction="row" spacing={spacing}>
+            <Grid item lg={8}>
+              <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+                <strong>{heading}</strong>
+              </DialogTitle>
+              <DialogContent dividers>
+                <Typography gutterBottom>{long_desc}</Typography>
+              </DialogContent>
+              <DialogActions>
+                <Button autoFocus onClick={handleClose} color="primary">
+                  Close
+                </Button>
+              </DialogActions>
             </Grid>
 
+            <Grid item lg={4}>
+              <p>Using in-built Camera</p>
+              <video
+                id="videoElement"
+                width="100%"
+                height="100%"
+                autoplay
+              ></video>
+              <Button onClick={streamStartVideo}>Start</Button>
+            </Grid>
+          </Grid>
         </div>
       </Dialog>
     </div>
