@@ -124,28 +124,17 @@ export default function PopUpDialog({ heading, long_desc }) {
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Try Out
       </Button>
-      <Dialog aria-labelledby="customized-dialog-title" open={open}>
-        <div style={{ display: "flex" }}>
-          <Paper className={classes.paper}>
+      <Dialog open={open}>
+        <div style={{padding:"20px"}}>
+ 
             <Grid
               container
-              justify="center"
+              direction="row"
               spacing={spacing}
             >
-              <Grid item>
-                <div id="container">
-                  <p>Using in-built Camera</p>
-                  <video
-                    id="videoElement"
-                    width="100%"
-                    height="100%"
-                    autoplay
-                  ></video>
-                  <Button onClick={streamStartVideo}>Start</Button>
-                </div>
-              </Grid>
+              
 
-              <Grid item>
+              <Grid item lg={8}> 
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                   <strong>{heading}</strong>
                 </DialogTitle>
@@ -158,8 +147,19 @@ export default function PopUpDialog({ heading, long_desc }) {
                   </Button>
                 </DialogActions>
               </Grid>
+
+              <Grid item lg={4}>
+                  <p>Using in-built Camera</p>
+                  <video
+                    id="videoElement"
+                    width="100%"
+                    height="100%"
+                    autoplay
+                  ></video>
+                  <Button onClick={streamStartVideo}>Start</Button>
+              </Grid>
             </Grid>
-          </Paper>
+
         </div>
       </Dialog>
     </div>
