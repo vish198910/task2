@@ -1,6 +1,8 @@
 const { OPEN_CREATE } = require("sqlite3");
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
+const cors = require("cors");
+
 
 //creating a simple server
 const app = express();
@@ -13,6 +15,14 @@ app.use(
   })
 );
 
+app.use(
+    cors({
+      origin: ["http://localhost:3000"],
+      credentials: true,
+    })
+  );
+
+  
 //creating the database and connecting to it
 const connectDatabase = () => {
   let db = new sqlite3.Database(
